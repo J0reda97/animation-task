@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 80%;
+    margin: 50px auto;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: relative;
+    border: 5px solid #FC2455;
+    border-right-color: white;
+    transform-origin: center;
+    margin: 50px 0;
+}
+
+.box::before,
+.box::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+    transition: align-self 1s ease-in-out;
+}
+
+.box::before {
+    width: 120%;
+    height: 120%;
+    border-radius: 50%;
+    border: 5px solid #2490AA;
+    border-left-color: white;
+}
+
+.box::after {
+    width: 140%;
+    height: 140%;
+    border-radius: 50%;
+    border: 5px solid #FC9000;
+    border-top-color: white;
+
+}
+
+.box:nth-child(even) {
+    right: -90%;
+    animation: spinner 1s linear infinite, switchrtl 3s linear forwards;
+}
+
+.box:nth-child(odd) {
+    left: 0;
+    animation: spinner 1s linear infinite, switchltr 3s linear forwards;
+}
+
+.box:nth-child(2) {
+    animation-delay: 3s;
+}
+
+.box:nth-child(3) {
+    animation-delay: 6s;
+}
+
+.box:nth-child(4) {
+    animation-delay: 9s;
+}
+
+.box:nth-child(5) {
+    animation-delay: 12s;
+}
+
+.box:nth-child(6) {
+    animation-delay: 15s;
+}
+
+.box:nth-child(7) {
+    animation-delay: 18s;
+}
+
+.box:nth-child(8) {
+    animation-delay: 21s;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes switchrtl {
+    0% {
+        right: -90%;
+    }
+
+    100% {
+        right: 0;
+    }
+}
+
+@keyframes switchltr {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: 90%;
+    }
+}
